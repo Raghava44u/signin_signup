@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Welcome</title>
+  </head>
+  <body>
+    <h1>Welcome back!</h1>
+    
+    <!-- Logout Button -->
+    <button onclick="logoutUser()">Logout</button>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAKOo2kcb0607PCC-0eTYPUBCPy4891Cs8",
+        authDomain: "signinsignup-8e44b.firebaseapp.com",
+        projectId: "signinsignup-8e44b",
+        storageBucket: "signinsignup-8e44b.firebasestorage.app",
+        messagingSenderId: "503024675139",
+        appId: "1:503024675139:web:f67f7dd2480c94c74627f6"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Logout Function
+      function logoutUser() {
+        firebase.auth().signOut().then(() => {
+          // Sign-out successful, redirect to login page
+          window.location.href = 'index.html';
+        }).catch((error) => {
+          console.error('Error signing out:', error);
+          alert('Error signing out. Please try again.');
+        });
+      }
+    </script>
+  </body>
+</html>
